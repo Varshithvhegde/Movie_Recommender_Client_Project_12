@@ -1,0 +1,685 @@
+:root {
+    --cyan: #13E0D5;
+    --white: #ffffff;
+    --black-body: #131A27
+}
+
+body {
+    background-color: var(--black-body);
+    width: 100%;
+    position: relative;
+    font-family: roboto, sans-serif;
+}
+
+a:hover {
+    text-decoration-color: var(--cyan);
+}
+
+
+/* Header */
+.navbar {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    height: 55px;
+}
+
+.right-container {
+    display: block;
+    margin-left: auto;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: var(--black-body)!important;
+    color: #fff;
+    border: none!important;
+    border-bottom: 1px solid #aaa!important;
+    border-radius: 0px!important;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #fff!important;
+}
+
+.select2-selection__arrow {
+    display: none;
+}
+
+.select2-dropdown, .select2-container--open .select2-dropdown--below {
+    background-color: var(--black-body)!important;
+    color: #fff!important;
+    border: 1px solid #aaa;
+    border: none!important;
+    overflow-x: hidden;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    background-color: var(--black-body);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.select2-results__options::-webkit-scrollbar {
+    display: none; /* Chrome */
+}
+
+.select2-results__options {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.select2 .select2-container .select2-container--default .select2-container--below .select2-container--open {
+    width: 250px!important;
+}
+
+
+i.fa-search {
+    color: #aaa;
+    position: relative;
+    right: 25px;
+}
+
+a {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+    .navbar .brand-logo{
+        margin: auto;
+    }
+
+    .navbar .right-container{
+        margin: auto;
+    }
+
+    .search-box:focus {
+        width: 250px;
+    }
+}
+
+
+/********* Index Page **********/
+.index::before{
+    content: "";
+    background: url(../images/background.jpg) no-repeat center center/cover;
+    position: absolute;
+    min-height: 100%;
+    height: 100vh;
+    width: 100%;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.navbar .left{
+    height: 100%;
+    display: flex;
+    float: left;
+}
+
+.right {
+    display: block;
+    margin-left: auto;
+}
+
+.right a {
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 7px 17px;
+    background: var(--cyan);
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    border: none;
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+}
+
+.content {
+    color: #fff;
+    padding: 40px;
+    padding-top: 100px;
+}
+
+.content-mail {
+    padding-top: 50px;
+}
+
+.content-mail input {
+    width: 30%;
+    padding: 10px;
+    padding-left: 20px;
+    border: 1px solid black;
+    border-right: none;
+}
+
+.content-mail input:focus-visible {
+    outline: none;
+}
+
+.content-mail button{
+    background-color: var(--cyan);
+    color: #000;
+    padding: 10px;
+    padding-right: 15px;
+    border: 1px solid black;
+    border-left: none;
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+}
+
+.content-mail button:focus {
+    outline: none !important;
+}
+
+.content-mail button:focus-visible {
+    outline: none;
+}
+
+@media (max-width: 768px)
+{ 
+    .content {
+        margin: 50px 0;
+        margin-bottom: 10px;
+        padding-top: 20px;
+    }
+
+    .content h1, h3 {
+        padding: 20px 0px;
+    }
+
+    .content-mail {
+        padding-top: 30px;
+    }
+
+    .content-mail input {
+        width: 60%;
+    }
+}
+
+
+/********* Sign-up Page && Sign-in Page **********/
+.login-right .login-form .login-div{
+    margin: auto;
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0,0,0,.5);
+    padding: 60px 70px;
+}
+
+.login-form input, .login-form button{
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.login-right .login-form form input[type=password], .login-right .login-form form input[type=tel], .login-right .login-form form input[type=email], .login-right .login-form form input[type=text] {
+    border-radius: 3px;
+    width: 100%;
+    border: 1px solid #eee;
+    margin: 5px;
+    font-size: 14px;
+    box-shadow: none;
+    padding: 4px 8px;
+}
+
+.login-right .login-form .btnlogin {
+    width: 100%;
+    margin: 10px 5px 5px;
+    font-size: 16px;
+    background-color: var(--cyan);
+    color: #000;
+}
+
+.login-right .login-form .forgot {
+    display: inline-block;
+    font-size: 12px;
+    text-decoration: none;
+    color: #aaa;
+    outline: 0;
+    margin: 5px 0;
+}
+
+.login-div p {
+    color: red;
+}
+
+@media screen and (max-width: 1200px) {
+    .login-right .login-form .login-div {
+        width: 40%;
+        padding: 60px 50px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .login-right .login-form .login-div {
+        width: 50%;
+        padding: 60px 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login-right .login-form .login-div {
+        width: 60%;
+        padding: 60px 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .login-right .login-form .login-div {
+        width: 70%;
+        padding: 60px 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .login-right .login-form .login-div {
+        width: 90%;
+        padding: 60px 30px;
+    }
+}
+
+
+/********* Movie Page **********/
+
+/* Movie Section */
+.movie-box {
+    color: #fff;
+    min-height: 60vh;
+    margin: 50px;
+    margin-top: 0px;
+    border-radius: 1%;
+    background-color: #030B17;
+}
+
+.movie-vid {
+    opacity: 0.6;
+    max-height: 600px;
+    min-height: 200px;
+    width: 100%;
+    background-position: 100%;
+    background-size: cover;
+    border-radius: 1%;
+    box-shadow: inset 15vw -11px 72px 31px rgb(0 0 0 / 80%);
+    -webkit-box-shadow: 15vw -11px 72px 31px rgb(0 0 0 / 80%) inset;
+    -moz-box-shadow: 15vw -11px 72px 31px rgba(0,0,0,.80) inset;
+}
+
+.movie-text {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.text-wrapper {
+    padding: 10px 5%;
+    z-index: 2;
+    height: 100%;
+    background: linear-gradient(to right, #030b17 80%, #0c111b00);
+    color: #fff;
+    overflow: hidden;
+}
+
+.watch-movie {
+    color: #aaa;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.watch-movie:hover {
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+.like-dislike {
+    display: inline;
+    float: right;
+    font-size: 20px;
+    color: #aaa;
+}
+
+.like-dislike .fa:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.active {
+    color: var(--cyan);
+}
+
+/* Recommendations Section */
+.title {
+    color: #fff;
+    opacity: 0.9;
+    padding-left: 5%;
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.movie-list {
+    padding: 20px 50px;
+}
+
+.movie-card p {
+    color: #fff;
+}
+
+.movie-card {
+    transition: transform 0.2s;
+}
+
+.movie-card:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 576px) {
+    .text-wrapper h2{
+        font-size: 1.5rem;
+    }
+
+    .text-wrapper h4{
+        font-size: 1rem;
+    }
+
+    .movie-box {
+        margin: 20px;
+    }
+
+    .movie-list {
+        padding: 20px 20px;
+    }
+
+    .title {
+        padding-left: 8%;
+    }
+}
+
+
+/********* Recommendations Page *********/
+
+/* Recommended for you section */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    padding: 20px 0;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+}
+
+.carousel {
+    display: flex;
+    width: 92%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.slider {
+    flex: 0 0 auto;
+    margin-right: 30px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 70%;
+    min-height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    border-radius: 5px;
+}
+
+.slider-content {
+    position: absolute;
+    width: 50%;
+    z-index: 2;
+    height: 100%;
+    background: linear-gradient(to right, #030b17 80%, #0c111b00);
+    color: #fff;
+    overflow: hidden;
+}
+
+.movie-title {
+    padding-left: 50px;
+    text-transform: capitalize;
+    margin-top: 80px;
+}
+
+.movie-des {
+    width: 80%;
+    line-height: 20px;
+    padding-left: 50px;
+    margin-top: 30px;
+    opacity: 0.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    visibility: hidden;
+}
+
+.carousel-container:hover .carousel-control-prev, .carousel-container:hover .carousel-control-next {
+    visibility: visible;
+}
+
+.carousel-control-prev-icon {
+    position: relative;
+    left: -40%;
+}
+
+.carousel-control-next-icon {
+    position: relative;
+    right: -40%;
+}
+
+/* Based on Section */
+select {
+    margin: 0 0 8px 20px;
+    outline: none;
+    background-color: var(--black-body);
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
+.text-contain {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 576px) {
+    .slider-content div {
+        position: relative;
+        top: 20%;
+    }
+
+    .movie-title {
+        margin-top: 30px;
+        font-size: 20px;
+        padding-left: 20px;
+    }
+
+    .movie-des {
+        line-height: 15px;
+        padding-left: 20px;
+        margin-top: 20px;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 10;
+        -webkit-box-orient: vertical;
+    }
+
+    .text-contain {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space:initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        padding: 0;
+        padding-top: 5px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/********* Choices Page **********/
+
+.select-heading {
+    color: #fff;
+}
+
+.select-list {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-height: 410px;
+    overflow-y: auto;
+    margin-bottom: 60px;
+    box-shadow: -2px -2px 5px var(--cyan),
+                3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-list li {
+    list-style: none;
+    text-align: center;
+    margin: 15px 0px;
+}
+
+.select-list li label {
+    cursor: pointer;
+}
+
+.select-list li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.select-list li :checked ~ .select-box {
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+    3px 3px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 1),
+        inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-list li .select-name {
+    transform: scale(0.95);
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:initial;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.select-list li .select-box {
+    padding: 20px;
+    border: 1px solid rgb(70, 70, 70);
+    border-radius: 10px;
+}
+
+.select-list li .select-box .select-name {
+    font-size: 30px;
+    color: var(--cyan);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--white); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    box-shadow: inset 0 0 7px var(--cyan);
+    border-radius: 10px;
+}
+
+.select-submit {
+    background-color: transparent;
+    color: var(--cyan);
+    padding: 20px;
+    border: 1px solid var(--white);
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 576px) {
+    .select-list li .select-box {
+        padding: 5px;
+    }
+
+    .select-heading h2{
+        font-size: 22px;
+    }
+}
+
+
+/********* Watch Movie Page **********/
+.watch-name {
+    color: #fff;
+    padding-left: 5%;
+    margin-top: 1.5%;
+}
+
+.watch-box {
+    min-height: 500px;
+}
+
+
+/* Footer */
+.footer {
+    color: var(--cyan);
+    margin-bottom: 20px;
+}
