@@ -20,7 +20,46 @@
 
 </head>
 <body>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .review_section{
+            width: 65%;
+            margin: auto;
+        }
+        .review_head {
+          text-align: center;
+          margin: 50px 0 30px;
+          color: wheat;
+        }
+        .review_ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .review {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          margin: 10px 0;
+          padding: 10px;
+          background-color: #f9f9f9;
+        }
+        .review-author {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .review-content {
+          margin: 0;
+        }
+        .no-review{
+            color:white;
+            margin: auto;
 
+        }
+      </style>
     <!-- Header -->
     <nav class="navbar">
         <a href="/recommendations" class="left">
@@ -69,7 +108,8 @@
                         {% endif %}
                         {% if movies_result[movie_idx][4]: %}
                         <p class="text-contain">{{movies_result[movie_idx][4]}}</p>
-                        {% endif %} <br> 
+                        {% endif %} <br>
+                        <p class="text-contain">Rating : {{rating}} 🌟</p>
                         <a href="/watch/{{movies_result[movie_idx][2]}}" class="watch-movie">
                             <i class="fa fa-play"></i>
                             Watch Movie
@@ -106,7 +146,21 @@
                 </div>
             </div>
         </div> -->
-
+        <h1 class="review_head">Movie Reviews</h1>
+        <div class="review_section">
+        {% if reviews %}
+        <ul class="review_ul">
+        {% for review in reviews %}
+        <li class="review">
+            <p class="review-author">{{ review.author }}</p>
+            <p class="review-content">{{ review.content }}</p>
+        </li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <center><p class="no-review">No reviews found.</p></center>
+      {% endif %}
+    </div>
     <!-- Recommendations Section -->
     <div class="container-fluid mb-3">
 

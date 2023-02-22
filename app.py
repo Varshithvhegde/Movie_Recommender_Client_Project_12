@@ -12,6 +12,7 @@ import faiss
 import numpy as np
 import bs4 as bs
 import urllib.request
+import requests
 
 
 
@@ -307,12 +308,34 @@ def movie(movie_name):
         # for i in soup_result:
         #     reviews.append(i.text)
         
+        # Rating 
+
+        # Define API endpoint and parameters
+        url = f'https://api.themoviedb.org/3/movie/{movie_id}'
+        params = {'api_key': '65669b357e1045d543ba072f7f533bce', 'language': 'en-US'}
+
+        # Send GET request to API and retrieve response
+        response = requests.get(url, params=params)
+
+        # Extract vote_average from response JSON
+        if response.status_code == 200:
+            data = response.json()
+            vote_average = data['vote_average']
+            
+        else:
+            print('Error retrieving data from API')
+        print('Vote average:', vote_average)
+                
+        
+        # Reviews 
+        
+        url = f'https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=65669b357e1045d543ba072f7f533bce&language=en-US&page=1'
+        response = requests.get(url)
+        reviews = response.json()['results']
+        
         
 
-
-        
-
-        return render_template("movie.html", movie_names=movie_names, movies_result=movies_result, movie_idx=movie_idx, recommendations=recommendations, posters=posters, trailer_key=trailer_key, movie_poster=movie_poster, mov_genre=mov_genre, mov_cast=mov_cast)
+        return render_template("movie.html", movie_names=movie_names, movies_result=movies_result, movie_idx=movie_idx, recommendations=recommendations, posters=posters, trailer_key=trailer_key, movie_poster=movie_poster, mov_genre=mov_genre, mov_cast=mov_cast,rating=vote_average,reviews=reviews)
     else:
         print("Session not found")
         return redirect(url_for("signin"))
