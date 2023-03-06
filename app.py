@@ -160,84 +160,9 @@ for row in movies_result:
     movie_names.append(row[2])
 
 
-@app.route('/getByGenre', methods=['GET','POST'])
-def getByGenre():
-    genre = request.form["genre"]
-    genre_movies, genre_posters = byGenre(genre, movies_result)
-    response = jsonify(
-        {"genre_movies": genre_movies}, {"genre_posters": genre_posters}
-    )
-    return response
-
-
-@app.route('/getByYear', methods=['GET','POST'])
-def getByYear():
-    year = request.form["year"]
-    year_movies, year_posters = byYear(year, movies_result)
-    response = jsonify(
-        {"year_movies": year_movies}, {"year_posters": year_posters}
-    )
-    return response
-
-
-# Recommendations page
-@app.route('/recommendations', methods=['GET', 'POST'])
+@app.route('/recommendations', methods=['GET','POST'])
 def recommendations():
-    global signin_email
-    global signup_email
-
-    if "user" in session:
-        conn = db_connection("users")
-        cursor = conn.cursor()
-        selected_genres = []
-        selected_cast = []
-
-        sql_query = " Select selected_genres, selected_cast from users where email= '" + session["user"] + "'"
-        cursor.execute(sql_query)
-        results = cursor.fetchall()
-
-        # sign-in
-        if len(results) != 0:
-            selected_genres = list(results[0][0].split("$"))
-            selected_cast = list(results[0][1].split("$"))
-
-        # sign-up
-        else:
-            genreList = request.form.getlist('genre-checkbox')
-            castList = request.form.getlist('cast-checkbox')
-            for i in genreList:
-                selected_genres.append(i.replace("-", " "))
-            for i in castList:
-                selected_cast.append(i.replace("-", " "))
-
-            # insert into database on signup
-            sg = ("$".join(selected_genres))
-            sc = ("$".join(selected_cast))
-            global signup_password
-            global signup_mobile
-            cursor.execute(INSERT_USER, (signup_email, signup_password, signup_mobile, sg, sc))
-            conn.commit()
-            print(cursor.lastrowid)
-            conn.close()
-            # session["choices"] = 1
-
-        conn.close()
-        choice_movies = byChoice(selected_genres, selected_cast)
-        choice_idx = []
-        choice_posters = []
-        for mov in choice_movies:
-            for row in movies_result:
-                if row[2] == mov:
-                    movie_idx = row[0]
-                    movie_id = row[1]
-                    break;
-            choice_idx.append(movie_idx)
-            choice_posters.append(fetchBackdrop(movie_id))
-        genre_movies, genre_posters = byGenre("Action", movies_result)
-        year_movies, year_posters = byYear("2016", movies_result)
-
-        return render_template("recommendations.html", movie_names=movie_names, genre_movies=genre_movies, year_movies=year_movies, genre_posters=genre_posters, year_posters=year_posters, choice_idx=choice_idx, movies_result=movies_result, choice_posters=choice_posters)
-    
+    return render_template("recommendations.html")
 
 
 
@@ -305,7 +230,7 @@ def change():
         session["user"] = signin_email
         session["choices"] = 1
 
-    return "recommendations"
+    return ""
 
 
 # Logout
