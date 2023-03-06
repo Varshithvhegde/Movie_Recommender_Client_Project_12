@@ -27,13 +27,8 @@
             <img src="../static/images/logo.png" alt="">
         </a>
         <div class="right-container">
-            <select id="movieSelect" class="select2 form-control" onchange="movieSelect()" style="width: 220px;">
-                <option disabled hidden selected value="sm" id="search-movie">Search Movie</option>
-                {% for item in movie_names %}
-                <option value={{item}}>{{item}}</option>
-                {% endfor %}
-            </select>
-            <i class="fa fa-search"></i>
+            
+           
             <a href="/logout" data-toggle="tooltip" title="Logout">
                 <img src="https://www.hotstar.com/assets/c724e71754181298e3f835e46ade0517.svg" alt="User logout" width="30px">
             </a>
@@ -52,7 +47,7 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="/movie/{{movies_result[choice_idx[0]][2]}}">
+                
                         <div class="slider">
                             <div class="slider-content">
                                 <div>
@@ -64,12 +59,12 @@
                             </div>
                             <img src={{choice_posters[0]}} alt="">
                         </div>
-                    </a>
+          
                 </div>
 
                 {%for i in range(1, 3)%}
                 <div class="carousel-item">
-                    <a href="/movie/{{movies_result[choice_idx[i]][2]}}">
+                  
                         <div class="slider">
                             <div class="slider-content">
                                 <div>
@@ -81,7 +76,7 @@
                             </div>
                             <img src={{choice_posters[i]}} alt="">
                         </div>
-                    </a>
+             
                 </div>
                 {% endfor %}
             </div>
@@ -117,40 +112,22 @@
         <div class="row movie-list" id="genre-row">
             {%for i in range(0, 6)%}
             <div class="col-6 col-sm-4 col-md-2 movie-card">
-                <a href="/movie/{{genre_movies[i]}}">
+              
                     <img src={{genre_posters[i]}} class="card-img" alt="">
-                    <p class="text-contain">{{genre_movies[i]}}</p>
-                </a>
+                    <p class="text-contain" id="genre_movie">{{genre_movies[i]}}</p>
+           
             </div>
             {% endfor %}
         </div>
-
-        <!-- <div class="row">
-            <h4 class="title">Best of year </h4>
-            <select name="years" id="years" onchange="javascript:yearSelected()"> -->
-                <!-- <option value="2017">2017</option> -->
-                <!-- <option value="2015">2015</option> -->
-                <!-- <option value="2014">2014</option>
-                <option value="2013">2013</option>
-                <option value="2016">2016</option>
-                <option value="2012">2012</option>
-            </select>
-        </div>
-
-        <div class="row movie-list" id="year-row">
-            {%for i in range(0, 6)%}
-            <div class="col-6 col-sm-4 col-md-2 movie-card">
-                <a href="/movie/{{year_movies[i]}}">
-                    <img src={{year_posters[i]}} class="card-img" alt="">
-                    <p class="text-contain">{{year_movies[i]}}</p>
-                </a>
-            </div>
-            {% endfor %}
-        </div> -->
-
     </div>
 
+    <script>
+        var mov = document.getElementById("genre_movie");
+        mov.addEventListener("click", function() {
+           console.log("clicked");
+        });
 
+    </script>
     <!-- JS/jQuery files  -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
