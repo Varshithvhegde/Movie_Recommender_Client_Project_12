@@ -24,12 +24,11 @@ CORS(app, support_credentials=True)
 # Flask mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = "kashishahuja2002@gmail.com"
-app.config['MAIL_PASSWORD'] = "dleiatmoyykkaafn"
+app.config['MAIL_USERNAME'] = "nextupweb2023@gmail.com"
+app.config['MAIL_PASSWORD'] = "zyklviqcsgdbhqdv"
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
-
 
 # fetch movies data
 conn = db_connection("movies")
@@ -364,7 +363,7 @@ def forgot():
         cursor = conn.cursor()
 
         signin_email = request.form["email"]
-
+        print(signin_email)
         sql_query = "Select email, password from users where email= '"+signin_email+"'"
         cursor.execute(sql_query)
         results = cursor.fetchall()
@@ -379,7 +378,7 @@ def forgot():
         range_start = 10**(6-1)
         range_end = (10**6)-1
         otp = randint(range_start, range_end)
-        message = Message("Next Up | OTP for password reset", sender="kashishahuja2002@gmail.com", recipients=[signin_email])
+        message = Message("Next Up | OTP for password reset", sender="nextupweb2023@gmail.com", recipients=[signin_email])
         message.body = "OTP: "+str(otp)
         mail.send(message)
 

@@ -34,8 +34,9 @@
                 {% endfor %}
             </select>
             <i class="fa fa-search"></i>
-            <a href="/logout" data-toggle="tooltip" title="Logout">
-                <img src="https://www.hotstar.com/assets/c724e71754181298e3f835e46ade0517.svg" alt="User logout" width="30px">
+            <a href="/logout" data-toggle="tooltip" title="Logout" style="color:white">
+                <img src="{{url_for('static',filename = 'images/log.png')}}" alt="User logout" width="50px">
+                LogOut
             </a>
         </div>
     </nav>
@@ -103,7 +104,7 @@
 
         <div class="row">
             <h4 class="title">Genre</h4>
-            <select name="genres" id="genres" onchange="genreSelected()">
+            <!-- <select name="genres" id="genres" onchange="genreSelected()">
                 <option value="Action">Action</option>
                 <option value="Family">Family</option>
                 <option value="Comedy">Comedy</option>
@@ -111,7 +112,7 @@
                 <option value="Romance">Romance</option>
                 <option value="Animation">Animation</option>
                 <option value="Drama">Drama</option>
-            </select>
+            </select> -->
         </div>
 
         <div class="row movie-list" id="genre-row">
